@@ -1,0 +1,10 @@
+{
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 7503,
+  "expoServerNgrokUrl": "https://tc-skk.anonymous.nucamp.exp.direct",
+  "packagerNgrokUrl": "https://packager.tc-skk.anonymous.nucamp.exp.direct",
+  "ngrokPid": 7543,
+  "webpackServerPort": 19006
+}

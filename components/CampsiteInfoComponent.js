@@ -140,9 +140,12 @@ class CampsiteInfo extends Component {
 
   render() {
     const campsiteId = this.props.navigation.getParam("campsiteId");
+    //This returns the campsite your currently in
     const campsite = this.props.campsites.campsites.filter(
       (campsite) => campsite.id === campsiteId
     )[0];
+
+    //This returns all comments for the current campsite
     const comments = this.props.comments.comments.filter(
       (comment) => comment.campsiteId === campsiteId
     );
@@ -178,12 +181,14 @@ class CampsiteInfo extends Component {
               leftIcon={{ type: "font-awesome", name: "user-o" }}
               leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(value) => this.setState({ author: value })}
+              value
             />
             <Input
               placeholder="Comment"
               leftIcon={{ type: "font-awesome", name: "comment-o" }}
               leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(value) => this.setState({ text: value })}
+              value
             />
             <View style={{ margin: 10 }}>
               <Button
@@ -203,6 +208,7 @@ class CampsiteInfo extends Component {
                   this.resetForm();
                 }}
                 title="Cancel"
+                color="#808080"
               />
             </View>
           </View>
