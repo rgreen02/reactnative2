@@ -9,6 +9,8 @@ import {
   StyleSheet,
   Alert,
   PanResponder,
+  share,
+  Share,
 } from "react-native";
 import { Card, Icon, Rating, Input } from "react-native-elements";
 import { connect } from "react-redux";
@@ -25,6 +27,18 @@ const mapStateToProps = (state) => {
   };
 };
 
+const shareCampsite = (title, message, url) => {
+  Share.share(
+    {
+      title: title,
+      message: `${title}: ${message} ${url}`,
+      url: url,
+    },
+    {
+      dialogTitle: "Share " + title,
+    }
+  );
+};
 const mapDispatchToProps = {
   postFavorite: (campsiteId) => postFavorite(campsiteId),
   postComment: (campsiteId, rating, author, text) =>
@@ -144,6 +158,21 @@ function RenderCampsite(props) {
               reverse
               onPress={() => props.onShowModal()}
             />
+            <Icon
+              name={"share"}
+              type="font-awesome"
+              style={styles.cardItem}
+              color="#5637DD"
+              raised
+              reverse
+              onPress={() =>
+                shareCampsite(
+                  campsite.name,
+                  campsite.description,
+                  baseUrl + campsite.images
+                )
+              }
+            />
           </View>
         </Card>
       </Animatable.View>
@@ -238,14 +267,14 @@ class CampsiteInfo extends Component {
               leftIcon={{ type: "font-awesome", name: "user-o" }}
               leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(value) => this.setState({ author: value })}
-              value
+              value={this.state.author}
             />
             <Input
               placeholder="Comment"
               leftIcon={{ type: "font-awesome", name: "comment-o" }}
               leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(value) => this.setState({ text: value })}
-              value
+              value={this.state.comment}
             />
             <View style={{ margin: 10 }}>
               <Button

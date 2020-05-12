@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 8264,
-  "expoServerNgrokUrl": "https://p6-q2s.anonymous.nucamp.exp.direct",
-  "packagerNgrokUrl": "https://packager.p6-q2s.anonymous.nucamp.exp.direct",
-  "ngrokPid": 8301,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
